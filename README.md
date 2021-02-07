@@ -38,3 +38,24 @@ rails g model Item title description:text image_url user:references
 Add the has_many :items association to app/models/user.rb.
 
 Add some pre-generated data to db/seeds.rb.
+
+## GraphQL
+
+```
+bundle add graphql
+rails generate graphql:install
+```
+
+Add the following lines to app/assets/config/manifest.js:
+
+```
+//= link graphiql/rails/application.css
+//= link graphiql/rails/application.js
+```
+
+Create types:
+
+```
+rails g graphql:object user
+rails g graphql:object item
+```
