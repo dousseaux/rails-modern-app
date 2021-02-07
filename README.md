@@ -11,3 +11,30 @@ rails new modern-app -d mysql --skip-action-mailbox --skip-action-text --skip-sp
 ```
 
 Based on [this guide by Evil Martians](https://evilmartians.com/chronicles/graphql-on-rails-1-from-zero-to-the-first-query).
+
+It’s strongly recommended that you disable all the unnecessary generators in the  config/application.rb:
+
+```
+config.generators do |g|
+    g.test_framework  false
+    g.stylesheets     false
+    g.javascripts     false
+    g.helper          false
+    g.channel         assets: false
+end
+```
+
+## Models
+
+Item to describe any entity (book, movie, etc.) that we want to store in the library.
+
+User to represent the application user who can manage items in the collection.
+
+```
+rails g model User first_name last_name email
+rails g model Item title description:text image_url user:references
+```
+
+Add the has_many :items association to app/models/user.rb.
+
+Add some pre-generated data to db/seeds.rb.
