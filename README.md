@@ -59,3 +59,10 @@ Create types:
 rails g graphql:object user
 rails g graphql:object item
 ```
+
+## Front End
+
+
+```
+yarn add apollo-client apollo-cache-inmemory apollo-link-http apollo-link-error apollo-link graphql graphql-tag react-apollo
+```

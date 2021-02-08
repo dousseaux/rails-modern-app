@@ -1,0 +1,24 @@
+{
+    "root": true,
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "env": {
+        "browser": true,
+        "node" : true
+    },
+    "plugins": ["html"],
+    "rules": {
+        "indent": ["error", 4],
+        "quotes" : ["error", "single"],
+        "max-len": ["error", { "code": 140, "ignoreStrings": true }],
+        "no-unused-vars": ["off"],
+        "camelcase": ["off"],
+        "no-undef": ["off"],
+        "space-in-parens": ["off"],
+        "computed-property-spacing": ["off"],
+        "array-bracket-spacing": ["off"],
+        "lines-around-comment": ["off"],
+        "no-loop-func": ["off"]
+    }
+}
