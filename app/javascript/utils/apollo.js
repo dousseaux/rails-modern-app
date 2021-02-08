@@ -29,17 +29,24 @@ export const createCache = () => {
 
 
 
-// getToken from meta tags
-const getToken = () =>
-    document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-const token = getToken();
-const setTokenForOperation = async operation =>
-    operation.setContext({
-        headers: {
-            'X-CSRF-Token': token,
-        },
-    });
+// Get tokens
+const getTokens = () => {
+  const tokens = {
+    "X-CSRF-Token": document
+      .querySelector('meta[name="csrf-token"]')
+      .getAttribute("content")
+  };
+  const authToken = localStorage.getItem("mlToken");
+  return authToken ? { ...tokens, Authorization: authToken } : tokens;
+};
 
+const setTokenForOperation = async operation => {
+  return operation.setContext({
+    headers: {
+      ...getTokens()
+    }
+  });
+};
 
 
 // link with token
